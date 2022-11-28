@@ -19,6 +19,7 @@ namespace CarRentalManagement.Server.Data
             IOptions<OperationalStoreOptions> operationalStoreOptions) : base(options, operationalStoreOptions)
         {
         }
+        // create the tables, DDL 
         public DbSet<Vehicle> Vehicles { get; set; }
         public DbSet<Colour> Colours { get; set; }
         public DbSet<Make> Makes { get; set; }
@@ -28,6 +29,7 @@ namespace CarRentalManagement.Server.Data
 
         protected override void OnModelCreating(ModelBuilder builder)
         {
+            // like DML create the rows 
             base.OnModelCreating(builder);
             builder.ApplyConfiguration(new ColourSeedConfiguration());
             builder.ApplyConfiguration(new MakeSeedConfiguration());
